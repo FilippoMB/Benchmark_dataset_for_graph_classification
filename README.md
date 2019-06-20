@@ -86,4 +86,4 @@ Dependecies to run the notebook:
 
 
 ## License
-The code is released under the MIT License. See the attached LICENSE file.
+The dataset and the code are released under the MIT License. See the attached LICENSE file.
