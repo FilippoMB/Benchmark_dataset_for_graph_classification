@@ -13,10 +13,10 @@ The dataset consists of graphs belonging to 3 different classes. The number of n
 
 There are 4 versions of the dataset
 
-- **small_easy: **100 graphs per class, number of nodes varying in 40 and 80. Highly connected graphs.
-- **easy: **300 graphs per class, number of nodes varying in 100 and 200. Highly connected graphs.
-- **small_hard: **100 graphs per class, number of nodes varying in 40 and 80. Sparse graphs.
-- **hard: **300 graphs per class, number of nodes varying in 100 and 200. Sparse graphs.
+- **small_easy:** 100 graphs per class, number of nodes varying in 40 and 80. Highly connected graphs.
+- **easy:** 300 graphs per class, number of nodes varying in 100 and 200. Highly connected graphs.
+- **small_hard:** 100 graphs per class, number of nodes varying in 40 and 80. Sparse graphs.
+- **hard:** 300 graphs per class, number of nodes varying in 100 and 200. Sparse graphs.
 
 In the hard dataset, it is necessary to consider higher order neighborhoods to understand the correct class and the graphs might be disconnected.
 
@@ -32,7 +32,7 @@ Each set contains:
 
 The following code snippet shows how to load the data
 
-````
+````python
 import numpy as np
 
 loaded = np.load('datasets/hard.npz', allow_pickle=True)
