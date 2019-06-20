@@ -8,8 +8,8 @@ Therefore, an alogorithm which relies solely on the node features or on the grap
 
 The dataset consists of graphs belonging to 3 different classes. The number of nodes in each graph is variable and the feature vector on each node is a one-hot vector of size 5, which encodes the color of the node. The class is determined by the relative position of the colors on the graph.
 
-![](/home/filippo/Benchmark_dataset_for_graph_classification/img/sample_graph.png) 
-![](/home/filippo/Benchmark_dataset_for_graph_classification/img/sample_graph2.png) 
+![](https://github.com/FilippoMB/Benchmark_dataset_for_graph_classification/blob/master/img/sample_graph.png) 
+![](https://github.com/FilippoMB/Benchmark_dataset_for_graph_classification/blob/master/img/sample_graph2.png) 
 
 There are 4 versions of the dataset
 
