@@ -85,3 +85,5 @@ Dependecies to run the notebook:
 | Core Framework     | Accuracy: 97.37  | Time: 19.52 s  | Accuracy: 46.43  | Time: 19.8 s   |
 
 
+## License
+The code is released under the MIT License. See the attached LICENSE file.
