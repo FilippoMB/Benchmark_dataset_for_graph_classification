@@ -12,7 +12,7 @@ We report some classification results obtained by using Graph Kernels and Graph 
 #### Graph Kernels
 The Graph Kernels are computed with the [GraKer](https://ysig.github.io/GraKeL/dev/index.html) library. After each kernel is computed, an SVM that uses as precomputed kernel the Graph Kernel is trained and then evaluated on the test data.
 As SVM implementation, the [sklearn.svm](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.svm) module was used.
-The code used to generate the results can be found in the [notebook]() of this repository.
+The code used to generate the results can be found in the [notebook](https://github.com/FilippoMB/Benchmark_dataset_for_graph_classification/blob/master/Example.ipynb) of this repository.
 
 Dependecies to run the notebook:
 - scikitlearn
