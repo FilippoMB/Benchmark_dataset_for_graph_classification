@@ -20,6 +20,12 @@ There are 4 versions of the dataset
 
 In the hard dataset, it is necessary to consider higher order neighborhoods to understand the correct class and the graphs might be disconnected.
 
+| Dataset    | # classes | # graphs | TR size | VAL size | TEST size | avg nodes | avg edges | Node Attr. (Dim.) |
+|------------|-----------|----------|---------|----------|-----------|-----------|-----------|-------------------|
+| easy_small | 3         | 300      | 233     | 29       | 38        | 58.54     | 359.11    | 5                 |
+| hard_small | 3         | 300      | 242     | 30       | 28        | 57.81     | 221.29    | 5                 |
+| easy       | 3         | 900      | 719     | 86       | 95        | 148.79    | 928.84    | 5                 |
+| hard       | 3         | 900      | 717     | 97       | 86        | 148.73    | 573.51    | 5                 |
 
 #### Format
 
