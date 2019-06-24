@@ -44,21 +44,19 @@ import numpy as np
 loaded = np.load('datasets/hard.npz', allow_pickle=True)
 
 X_train = loaded['tr_feat'] # node features
-A_train = [_ for _ in loaded['tr_adj']] # list of adjacency matrices
-G_train = [_ for _ in loaded['tr_graphs']] # list of networkx graphs
+A_train = list(loaded['tr_adj']) # list of adjacency matrices
+G_train = list(loaded['tr_graphs']) # list of networkx graphs
 y_train = loaded['tr_class'] # class labels
 
 X_val = loaded['val_feat'] # node features
-A_val = [_ for _ in loaded['val_adj']] # list of adjacency matrices
-G_val = [_ for _ in loaded['val_graphs']] # list of networkx graphs
+A_val = list(loaded['val_adj']) # list of adjacency matrices
+G_val = list(loaded['val_graphs']) # list of networkx graphs
 y_val = loaded['val_class'] # class labels
 
-
 X_test = loaded['te_feat'] # node features
-A_test = [_ for _ in loaded['te_adj']] # list of adjacency matrices
-G_test = [_ for _ in loaded['te_graphs']] # list of networkx graphs
+A_test = list(loaded['te_adj']) # list of adjacency matrices
+G_test = list(loaded['te_graphs']) # list of networkx graphs
 y_test = loaded['te_class'] # class labels
-
 ````
 
 ## Results
