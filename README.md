@@ -1,8 +1,8 @@
 # Benchmark_dataset_for_graph_classification
-This repository contains a synthetically generated dataset for quickly testing graph classification algorithms, such as Graph Kernels and Graph Neural Networks.
+This repository contains datasets to quickly test graph classification algorithms, such as Graph Kernels and Graph Neural Networks.
 
 The purpose of this dataset is to make the features on the nodes and the adjacency matrix to be completely uninformative if considered alone.
-Therefore, an alogorithm which relies solely on the node features or on the graph structure will fail to achieve good classification results.
+Therefore, an alogorithm that relies only on the node features or on the graph structure will fail to achieve good classification results.
 
 ## Dataset details
 
@@ -14,18 +14,18 @@ The dataset consists of graphs belonging to 3 different classes. The number of n
 There are 4 versions of the dataset
 
 - **small_easy:** 100 graphs per class, number of nodes varying in 40 and 80. Highly connected graphs.
-- **easy:** 300 graphs per class, number of nodes varying in 100 and 200. Highly connected graphs.
+- **easy:** 600 graphs per class, number of nodes varying in 100 and 200. Highly connected graphs.
 - **small_hard:** 100 graphs per class, number of nodes varying in 40 and 80. Sparse graphs.
-- **hard:** 300 graphs per class, number of nodes varying in 100 and 200. Sparse graphs.
+- **hard:** 600 graphs per class, number of nodes varying in 100 and 200. Sparse graphs.
 
 In the hard dataset, it is necessary to consider higher order neighborhoods to understand the correct class and the graphs might be disconnected.
 
 | Dataset    | # classes | # graphs | TR size | VAL size | TEST size | avg nodes | avg edges | Node Attr. (Dim.) |
 |------------|-----------|----------|---------|----------|-----------|-----------|-----------|-------------------|
-| easy_small | 3         | 300      | 233     | 29       | 38        | 58.54     | 359.11    | 5                 |
-| hard_small | 3         | 300      | 242     | 30       | 28        | 57.81     | 221.29    | 5                 |
-| easy       | 3         | 900      | 719     | 86       | 95        | 148.79    | 928.84    | 5                 |
-| hard       | 3         | 900      | 717     | 97       | 86        | 148.73    | 573.51    | 5                 |
+| easy_small | 3         | 300      | 239     | 30       | 31        | 58.25     | 358.8    | 5                 |
+| hard_small | 3         | 300      | 245     | 29       | 26        | 58.64     | 224.94    | 5                 |
+| easy       | 3         | 1800     | 1475    | 162      | 163       | 147.82    | 922.66    | 5                 |
+| hard       | 3         | 1800     | 1451    | 159      | 190       | 148.32    | 572.32    | 5                 |
 
 #### Format
 
@@ -34,7 +34,6 @@ Each set contains:
 - the list of adjacency matrices in csr_matrix format,
 - the list of node features as numpy arrays,
 - the class labels contained in a numpy array,
-- a list of networkx graphs (use the dict key 'features' to access the features on the nx graph's nodes). This representation can be used instead of the list of sparse adjacency matrices and of array of numpy features.
 
 The following code snippet shows how to load the data
 
@@ -45,18 +44,39 @@ loaded = np.load('datasets/hard.npz', allow_pickle=True)
 
 X_train = loaded['tr_feat'] # node features
 A_train = list(loaded['tr_adj']) # list of adjacency matrices
-G_train = list(loaded['tr_graphs']) # list of networkx graphs
 y_train = loaded['tr_class'] # class labels
 
 X_val = loaded['val_feat'] # node features
 A_val = list(loaded['val_adj']) # list of adjacency matrices
-G_val = list(loaded['val_graphs']) # list of networkx graphs
 y_val = loaded['val_class'] # class labels
 
 X_test = loaded['te_feat'] # node features
 A_test = list(loaded['te_adj']) # list of adjacency matrices
-G_test = list(loaded['te_graphs']) # list of networkx graphs
 y_test = loaded['te_class'] # class labels
+
+# OPTIONAL - Convert to networkx format
+import networkx as nx
+
+G_train = []
+for a, x in zip(A_train, X_train):
+    G = nx.from_scipy_sparse_matrix(a)
+    x_tuple = tuple(map(tuple, x))
+    nx.set_node_attributes(G, dict(enumerate(x_tuple)), 'features')
+    G_train.append(G)
+    
+G_val = []
+for a, x in zip(A_val, X_val):
+    G = nx.from_scipy_sparse_matrix(a)
+    x_tuple = tuple(map(tuple, x))
+    nx.set_node_attributes(G, dict(enumerate(x_tuple)), 'features')
+    G_val.append(G)
+    
+G_test = []
+for a, x in zip(A_test, X_test):
+    G = nx.from_scipy_sparse_matrix(a)
+    x_tuple = tuple(map(tuple, x))
+    nx.set_node_attributes(G, dict(enumerate(x_tuple)), 'features')
+    G_test.append(G)
 ````
 
 ## Results
@@ -74,19 +94,17 @@ Dependecies to run the notebook:
 
 | Dataset            | easy_small       |                | hard_small       |                |
 |--------------------|------------------|----------------|------------------|----------------|
-| Shortest Path      | Accuracy: 97.37   | Time: 23.57 s  | Accuracy: 57.14  | Time: 22.68 s  |
-| Graphlet Sampling  | Accuracy: 42.11  | Time: 293.98 s | Accuracy: 35.71  | Time: 69.99 s  |
-| Pyramid Match      | Accuracy: 44.74  | Time: 3.15 s   | Accuracy: 46.43  | Time: 5.68 s   |
-| SVM Theta          | Accuracy: 39.47  | Time: 3.65 s   | Accuracy: 28.57  | Time: 7.04 s   |
-| Neighborhood Hash  | Accuracy: 97.37  | Time: 3.13 s   | Accuracy: 53.57  | Time: 5.13 s   |
-| Subtree WL         | Accuracy: 39.47  | Time: 0.02 s   | Accuracy: 28.57  | Time: 0.04 s   |
-| ODD STH            | Accuracy: 65.79  | Time: 64.88 s  | Accuracy: 46.43  | Time: 51.12 s  |
-| Propagation        | Accuracy: 84.21  | Time: 3.97 s   | Accuracy: 46.43  | Time: 5.52 s   |
-| Pyramid Match      | Accuracy: 44.74  | Took: 3.67 s   | Accuracy: 46.43  | Time: 5.79 s   |
-| Vertex Histogram   | Accuracy: 39.47  | Time: 0.02 s   | Accuracy:  28.57  | Time: 0.03 s   |
-| Weisfeiler Lehman  | Accuracy: 97.37  | Time: 53.47 s | Accuracy: 57.14  | Time: 50.92 s |
-| Hadamard Code      | Accuracy:  68.42  | Time: 44.5 s   |  Accuracy:  64.29   |  Time:  33.63  |
-| Core Framework     | Accuracy: 97.37  | Time: 19.52 s  | Accuracy: 46.43  | Time: 19.8 s   |
+| Shortest Path      | Accuracy: 100   | Time: 20.67 s          | Accuracy: 69.23  | Time: 7.85 s  |
+| Graphlet Sampling  | Accuracy: 41.94  | Time: 281.35 s | Accuracy:  38.46 | Time:  37.84 s  |
+| Pyramid Match      | Accuracy: 51.61  | Time: 2.91 s       | Accuracy:  23.08 | Time:  2.86 s   |
+| SVM Theta          | Accuracy: 32.26  | Time: 3.34 s   | Accuracy:  23.08 | Time:  2.91 s   |
+| Neighborhood Hash  | Accuracy: 90.32  | Time: 2.73 s   | Accuracy: 69.23  | Time: 2.71 s   |
+| Subtree WL         | Accuracy: 29.03  | Time: 0.01 s   | Accuracy: 15.38  | Time: 0.03 s   |
+| ODD STH            | Accuracy: 77.42  | Time: 58.75 s  | Accuracy: 42.31  | Time: 24.48 s  |
+| Propagation        | Accuracy: 87.1  | Time: 3.35 s   | Accuracy:  53.85 | Time:  2.61 s  |
+| Vertex Histogram   | Accuracy: 29.03  | Time: 0.02 s   | Accuracy: 15.38  | Time: 0.01 s   |
+| Weisfeiler Lehman  | Accuracy: 100  | Time: 151.81 s | Accuracy:  73.08 | Time: 58.92 s |
+| Core Framework     | Accuracy: 100  | Time: 62.18 s  | Accuracy:  69.23 | Time:  18.62 s   |
 
 
 ## License
