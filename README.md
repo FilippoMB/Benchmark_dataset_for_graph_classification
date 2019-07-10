@@ -2,7 +2,7 @@
 This repository contains datasets to quickly test graph classification algorithms, such as Graph Kernels and Graph Neural Networks.
 
 The purpose of this dataset is to make the features on the nodes and the adjacency matrix to be completely uninformative if considered alone.
-Therefore, an alogorithm that relies only on the node features or on the graph structure will fail to achieve good classification results.
+Therefore, an algorithm that relies only on the node features or on the graph structure will fail to achieve good classification results.
 
 ## Dataset details
 
