@@ -1,4 +1,4 @@
-# Benchmark_dataset_for_graph_classification
+# Benchmark dataset for graph classification
 This repository contains datasets to quickly test graph classification algorithms, such as Graph Kernels and Graph Neural Networks.
 
 The purpose of this dataset is to make the features on the nodes and the adjacency matrix to be completely uninformative if considered alone.
