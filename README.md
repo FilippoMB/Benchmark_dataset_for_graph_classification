@@ -108,8 +108,25 @@ Dependecies to run the notebook:
 | Weisfeiler Lehman  | Accuracy: 100    | Time: 151.81 s | Accuracy:  73.08 | Time: 58.92 s  |
 | Core Framework     | Accuracy: 100    | Time: 62.18 s  | Accuracy:  69.23 | Time:  18.62 s |
 
+
+#### Graph Neural Networks
+
+Results obtained with the following GNN architecture: MP(32)-Pool-MP(32)-Pool-MP(32)-GlobalPool-Dense(Softmax). MP is a message-passing architecture (a Chebyshev convolutional layer with K=1 was used) \[1\] with 32 hidden units. Results are reported by using different pooling layers: Graclus \[2\], Node Decimation Pooling (NDP) \[3\], DiffPool \[4\], Top-K pooling \[5\], SAGpool \[6\] and MinCutPool \[7\].
+
+
+| Dataset            | easy             | hard             |
+|--------------------|------------------|------------------|
+| Graclus    | Accuracy: 97.5 ± 0.5 | Accuracy: 69.0 ± 1.5  |
+| NDP        | Accuracy: 97.9 ± 0.5 | Accuracy: 72.6 ± 0.9  |
+| DiffPool   | Accuracy: 98.6 ± 0.4 | Accuracy: 69.9 ± 1.9  |
+| Top-K      | Accuracy: 82.4 ± 8.9 | Accuracy: 42.7 ± 15.2 |
+| SAGPool    | Accuracy: 84.2 ± 2.3 | Accuracy: 37.7 ± 14.5 |
+| MinCutPool | Accuracy: 99.0 ± 0.0 | Accuracy: 73.8 ± 1.9  |
+
+
+
 #### Embedding Simplicial Complexes (ESC)
-Technique proposed in \[1\].
+Technique proposed in \[8\].
 
 | Dataset            | easy_small       |                | hard_small       |                |
 |--------------------|------------------|----------------|------------------|----------------|
@@ -124,7 +141,7 @@ Technique proposed in \[1\].
 | ESC +  L2-SVM  | Accuracy: 93.37 ± 1.96 | Time: 10.94 s| Accuracy: 69.26 ± 1.85| Time: 16.65 s|
 
 #### Hypergraph kernels
-Technique proposed in \[2\].
+Technique proposed in \[9\].
 
 | Dataset            | easy_small       |                | hard_small       |                |
 |--------------------|------------------|----------------|------------------|----------------|
@@ -142,9 +159,23 @@ Technique proposed in \[2\].
 
 
 ## References
-\[1\] Martino A, Giuliani A, Rizzi A., (Hyper) Graph Embedding and Classification via Simplicial Complexes. Algorithms. 2019 Nov; 12(11):223.
+\[1\] Defferrard, M., Bresson, X., & Vandergheynst, P. (2016). Convolutional neural networks on graphs with fast localized spectral filtering. In Advances in neural information processing systems
 
-\[2\] Martino A. and Rizzi A., (Hyper)graph kernels over simplicial complexes. 2020. Pattern Recognition.
+\[2\] Dhillon, I. S., Guan, Y., & Kulis, B. (2007). Weighted graph cuts without eigenvectors a multilevel approach. IEEE transactions on pattern analysis and machine intelligence
+
+\[3\] Bianchi, F. M., Grattarola, D., Livi, L., & Alippi, C. (2019). Hierarchical Representation Learning in Graph Neural Networks with Node Decimation Pooling
+
+\[4\] Ying, Z., You, J., Morris, C., Ren, X., Hamilton, W., & Leskovec, J. (2018). Hierarchical graph representation learning with differentiable pooling. In Advances in neural information processing systems
+
+\[5\] Gao, H., & Ji, S., Graph u-nets, ICML 2019
+
+\[6\] Lee, J., Lee, I., & Kang, J., Self-attention graph pooling, ICML 2019
+
+\[7\] F. M. Bianchi, D. Grattarola, A. Alippi, Spectral Clustering with Graph Neural Networks for Graph Pooling, ICML 2020
+
+\[8\] Martino A, Giuliani A, Rizzi A., (Hyper) Graph Embedding and Classification via Simplicial Complexes. Algorithms. 2019 Nov; 12(11):223
+
+\[9\] Martino A. and Rizzi A., (Hyper)graph kernels over simplicial complexes. 2020. Pattern Recognition
 
 ## License
 The dataset and the code are released under the MIT License. See the attached LICENSE file.
