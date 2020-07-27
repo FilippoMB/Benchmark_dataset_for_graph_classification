@@ -171,7 +171,7 @@ Technique proposed in \[9\].
 
 \[6\] Lee, J., Lee, I., & Kang, J., Self-attention graph pooling, ICML 2019
 
-\[7\] F. M. Bianchi, D. Grattarola, A. Alippi, Spectral Clustering with Graph Neural Networks for Graph Pooling, ICML 2020
+\[7\] F. M. Bianchi, D. Grattarola, C. Alippi, Spectral Clustering with Graph Neural Networks for Graph Pooling, ICML 2020
 
 \[8\] Martino A, Giuliani A, Rizzi A., (Hyper) Graph Embedding and Classification via Simplicial Complexes. Algorithms. 2019 Nov; 12(11):223
 
