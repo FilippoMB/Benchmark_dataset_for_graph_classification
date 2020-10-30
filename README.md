@@ -94,7 +94,7 @@ Dependecies to run the notebook:
 - networkx ````pip install networkx````
 - grakel ````pip install grakel-dev````
 
-| Dataset            | easy_small       |                | hard_small       |                |
+|               | easy_small       |                | hard_small       |                |
 |--------------------|------------------|----------------|------------------|----------------|
 | Shortest Path      | Accuracy: 100    | Time: 20.67 s  | Accuracy: 69.23  | Time: 7.85 s   |
 | Graphlet Sampling  | Accuracy: 41.94  | Time: 281.35 s | Accuracy:  38.46 | Time:  37.84 s |
@@ -111,11 +111,11 @@ Dependecies to run the notebook:
 
 #### Graph Neural Networks
 
-Results obtained with the following GNN architecture: MP(32)-Pool-MP(32)-Pool-MP(32)-GlobalPool-Dense(Softmax). MP is a message-passing architecture (a Chebyshev convolutional layer with K=1 was used) \[1\] with 32 hidden units. Results are reported by using different pooling layers: Graclus \[2\], Node Decimation Pooling (NDP) \[3\], DiffPool \[4\], Top-K pooling \[5\], SAGpool \[6\] and MinCutPool \[7\].
+Results obtained with the following GNN architecture: MP(32)-Pool-MP(32)-Pool-MP(32)-GlobalPool-Dense(Softmax). MP is a message-passing architecture. A Chebyshev convolutional layer \[1\] with K=1 and 32 hidden units was used here. Results refer to different graph pooling layers: Graclus \[2\], Node Decimation Pooling (NDP) \[3\], DiffPool \[4\], Top-K pooling \[5\], SAGpool \[6\] and MinCutPool \[7\].
 
 
-| Dataset            | easy             | hard             |
-|--------------------|------------------|------------------|
+|    | easy     | hard                  |
+|------------|----------------------|-----------------------|
 | Graclus    | Accuracy: 97.5 ± 0.5 | Accuracy: 69.0 ± 1.5  |
 | NDP        | Accuracy: 97.9 ± 0.5 | Accuracy: 72.6 ± 0.9  |
 | DiffPool   | Accuracy: 98.6 ± 0.4 | Accuracy: 69.9 ± 1.9  |
@@ -126,31 +126,31 @@ Results obtained with the following GNN architecture: MP(32)-Pool-MP(32)-Pool-MP
 
 
 #### Embedding Simplicial Complexes (ESC)
-Technique proposed in \[8\].
+Techniques proposed in \[8\].
 
-| Dataset            | easy_small       |                | hard_small       |                |
+|              | easy_small       |                | hard_small       |                |
 |--------------------|------------------|----------------|------------------|----------------|
 | ESC +  RBF-SVM | Accuracy: 74.19 ± 6.84  | Time: 0.68 s| Accuracy: 48.46 ± 8.43| Time: 0.48 s|
 | ESC +  L1-SVM  | Accuracy: 94.19 ± 2.70  | Time: 0.68 s| Accuracy: 70.77 ± 5.83| Time: 0.48 s|
 | ESC +  L2-SVM  | Accuracy: 92.26 ± 2.89  | Time: 0.68 s| Accuracy: 69.23 ± 5.44| Time: 0.48 s|
 
-| Dataset            | easy             |                | hard             |                |
+|              | easy             |                | hard             |                |
 |--------------------|------------------|----------------|------------------|----------------|
 | ESC +  RBF-SVM | Accuracy: 80.37 ± 7.04 | Time: 10.94 s| Accuracy: 62.53 ± 4.58| Time: 16.65 s|
 | ESC +  L1-SVM  | Accuracy: 96.07 ± 0.93 | Time: 10.94 s| Accuracy: 72.21 ± 1.01| Time: 16.65 s|
 | ESC +  L2-SVM  | Accuracy: 93.37 ± 1.96 | Time: 10.94 s| Accuracy: 69.26 ± 1.85| Time: 16.65 s|
 
 #### Hypergraph kernels
-Technique proposed in \[9\].
+Techniques proposed in \[9\].
 
-| Dataset            | easy_small       |                | hard_small       |                |
+|              | easy_small       |                | hard_small       |                |
 |--------------------|------------------|----------------|------------------|----------------|
 | Hist Kernel      | Accuracy: 0.94 ± 0.02 | Time: 0.72 s| Accuracy: 0.77 ± 0.02 | Time: 0.46 s|
 | Jaccard Kernel   | Accuracy: 0.94 ± 0.0  | Time: 0.86 s| Accuracy: 0.68 ± 0.02 | Time: 0.54 s|
 | Edit Kernel      | Accuracy: 0.91 ± 0.01 | Time: 9.97 s| Accuracy: 0.6 ± 0.02  | Time: 7.70 s|
 | Stratedit Kernel | Accuracy: 0.94 ± 0.0  | Time: 5.14 s| Accuracy: 0.58 ± 0.02 | Time: 4.79 s|
 
-| Dataset            | easy                  |                | hard                  |                |
+|              | easy                  |                | hard                  |                |
 |--------------------|-----------------------|----------------|-----------------------|----------------|
 | Hist Kernel        | Accuracy: 0.94 ± 0.01 | Time: 10.39  s  | Accuracy: 0.72 ± 0.01 | Time: 6.93    s |
 | Jaccard Kernel     | Accuracy: 0.94 ± 0.01 | Time: 14.15  s  | Accuracy: 0.63 ± 0.0  | Time: 8.11    s |
