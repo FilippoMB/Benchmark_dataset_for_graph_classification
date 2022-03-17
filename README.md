@@ -4,6 +4,20 @@ This repository contains datasets to quickly test graph classification algorithm
 The purpose of this dataset is to make the features on the nodes and the adjacency matrix to be completely uninformative if considered alone.
 Therefore, an algorithm that relies only on the node features or on the graph structure will fail to achieve good classification results.
 
+## Citation
+
+Please, cite the original paper if you are using this dataset in your research
+
+	@inproceedings{bianchi2020mincutpool,
+        title={Pyramidal Reservoir Graph Neural Network},
+        author={Bianchi, Filippo Maria and Gallicchio, Claudio and Micheli, Alessio},
+        journal={Neurocomputing},
+        volume={470},
+        pages={389--404},
+        year={2022},
+        publisher={Elsevier}
+    }
+
 ## Dataset details
 
 The dataset consists of graphs belonging to 3 different classes. The number of nodes in each graph is variable and the feature vector on each node is a one-hot vector of size 5, which encodes the color of the node. The class is determined by the relative position of the colors on the graph.
@@ -145,17 +159,17 @@ Techniques proposed in \[9\].
 
 |              | easy_small       |                | hard_small       |                |
 |--------------------|------------------|----------------|------------------|----------------|
-| Hist Kernel      | Accuracy: 0.94 ± 0.02 | Time: 0.72 s| Accuracy: 0.77 ± 0.02 | Time: 0.46 s|
-| Jaccard Kernel   | Accuracy: 0.94 ± 0.0  | Time: 0.86 s| Accuracy: 0.68 ± 0.02 | Time: 0.54 s|
-| Edit Kernel      | Accuracy: 0.91 ± 0.01 | Time: 9.97 s| Accuracy: 0.6 ± 0.02  | Time: 7.70 s|
-| Stratedit Kernel | Accuracy: 0.94 ± 0.0  | Time: 5.14 s| Accuracy: 0.58 ± 0.02 | Time: 4.79 s|
+| Hist Kernel      | Accuracy: 94.0 ± 0.02 | Time: 0.72 s| Accuracy: 77.0 ± 0.02 | Time: 0.46 s|
+| Jaccard Kernel   | Accuracy: 94.0 ± 0.0  | Time: 0.86 s| Accuracy: 68.0 ± 0.02 | Time: 0.54 s|
+| Edit Kernel      | Accuracy: 94.0 ± 0.01 | Time: 9.97 s| Accuracy: 60.0 ± 0.02 | Time: 7.70 s|
+| Stratedit Kernel | Accuracy: 94.0 ± 0.0  | Time: 5.14 s| Accuracy: 58.0 ± 0.02 | Time: 4.79 s|
 
 |              | easy                  |                | hard                  |                |
 |--------------------|-----------------------|----------------|-----------------------|----------------|
-| Hist Kernel        | Accuracy: 0.94 ± 0.01 | Time: 10.39  s  | Accuracy: 0.72 ± 0.01 | Time: 6.93    s |
-| Jaccard Kernel     | Accuracy: 0.94 ± 0.01 | Time: 14.15  s  | Accuracy: 0.63 ± 0.0  | Time: 8.11    s |
-| Edit Kernel        | Accuracy: 0.93 ± 0.0  | Time: 2784.47 s | Accuracy: 0.6 ± 0.0   | Time: 2183.41 s |
-| Stratedit Kernel   | Accuracy: 0.93 ± 0.0  | Time: 932.96  s | Accuracy: 0.6 ± 0.01  | Time: 954.87  s |
+| Hist Kernel        | Accuracy: 94.0 ± 0.01 | Time: 10.39  s  | Accuracy: 72.0 ± 0.01  | Time: 6.93    s |
+| Jaccard Kernel     | Accuracy: 94.0 ± 0.01 | Time: 14.15  s  | Accuracy: 63.0 ± 0.00  | Time: 8.11    s |
+| Edit Kernel        | Accuracy: 93.0 ± 0.00 | Time: 2784.47 s | Accuracy: 60.0 ± 0.00  | Time: 2183.41 s |
+| Stratedit Kernel   | Accuracy: 93.0 ± 0.00 | Time: 932.96  s | Accuracy: 60.0 ± 0.01  | Time: 954.87  s |
 
 
 ## References
