@@ -98,16 +98,17 @@ for a, x in zip(A_test, X_test):
 The dataset can be processed by a GNN implemented in [Pytorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/index.html) using the function defined in [torch_loader.py](https://github.com/FilippoMB/Benchmark_dataset_for_graph_classification/blob/master/data_loaders/torch_geometric/torch_loader.py).
 
 ````python
+from torch_geometric.loader import DataLoader
 from torch_loader import GraphClassificationBench
 
 # Load "hard"
-file_path = "data/"
-train_dataset = GraphClassificationBench(file_path, split='train', easy=False, small=False)
-train_loader = DataLoader(train_dataset, args.batch_size, shuffle=True)
-val_dataset = GraphClassificationBench(file_path, split='val', easy=False, small=False)
-val_loader = DataLoader(val_dataset, args.batch_size)
-test_dataset = GraphClassificationBench(file_path, split='test', easy=False, small=False)
-test_loader = DataLoader(test_dataset, args.batch_size)
+train_dataset = GraphClassificationBench("data/", split='train', easy=False, small=False)
+val_dataset = GraphClassificationBench("data/", split='val', easy=False, small=False)
+test_dataset = GraphClassificationBench("data/", split='test', easy=False, small=False)
+
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=32)
+test_loader = DataLoader(test_dataset, batch_size=32)
 ````
 
 See [torch_classification_example.py](https://github.com/FilippoMB/Benchmark_dataset_for_graph_classification/blob/master/data_loaders/torch_geometric/torch_classification_example.py) for a complete working example.
