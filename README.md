@@ -8,7 +8,7 @@ Therefore, an algorithm that relies only on the node features or on the graph st
 
 Please, cite the original paper if you are using this dataset in your research
 
-	@inproceedings{bianchi2020mincutpool,
+	@inproceedings{bianchi2022pyramidal,
         title={Pyramidal Reservoir Graph Neural Network},
         author={Bianchi, Filippo Maria and Gallicchio, Claudio and Micheli, Alessio},
         journal={Neurocomputing},
@@ -41,7 +41,7 @@ In the hard dataset, it is necessary to consider higher order neighborhoods to u
 | easy       | 3         | 1800     | 1475    | 162      | 163       | 147.82    | 922.66    | 5                 |
 | hard       | 3         | 1800     | 1451    | 159      | 190       | 148.32    | 572.32    | 5                 |
 
-#### Format
+### Format
 
 The dataset is already split in training, validation and classification sets.
 Each set contains:
@@ -92,6 +92,25 @@ for a, x in zip(A_test, X_test):
     nx.set_node_attributes(G, dict(enumerate(x_tuple)), 'features')
     G_test.append(G)
 ````
+
+## Loader (Pytorch)
+
+The dataset can be processed by a GNN implemented in [Pytorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/index.html) using the function defined in [torch_loader.py](https://github.com/FilippoMB/Benchmark_dataset_for_graph_classification/blob/master/data_loaders/torch_geometric/torch_loader.py).
+
+````python
+from torch_loader import GraphClassificationBench
+
+# Load "hard"
+file_path = "data/"
+train_dataset = GraphClassificationBench(file_path, split='train', easy=False, small=False)
+train_loader = DataLoader(train_dataset, args.batch_size, shuffle=True)
+val_dataset = GraphClassificationBench(file_path, split='val', easy=False, small=False)
+val_loader = DataLoader(val_dataset, args.batch_size)
+test_dataset = GraphClassificationBench(file_path, split='test', easy=False, small=False)
+test_loader = DataLoader(test_dataset, args.batch_size)
+````
+
+See [torch_classification_example.py](https://github.com/FilippoMB/Benchmark_dataset_for_graph_classification/blob/master/data_loaders/torch_geometric/torch_classification_example.py) for a complete working example.
 
 ## Results
 Classification results obtained by using Graph Kernels and other techniques are reported below.
