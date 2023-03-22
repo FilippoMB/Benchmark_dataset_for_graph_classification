@@ -1,2 +1,7 @@
 .ipynb_checkpoints/*
 compute_stats.py
+*.pyc
+*.pt
+data_loaders/torch_geometric/data/raw/hard.npz
+data_loaders/spektral_tensorflow/tf_classification_example.py
+data_loaders/spektral_tensorflow/spektral_loader.py
