@@ -6,9 +6,10 @@ Therefore, an algorithm that relies only on the node features or on the graph st
 
 ## Citation
 
-Please, cite the original paper if you are using this dataset in your research
+If you are using this dataset in your research, please cite [our paper](https://arxiv.org/abs/2104.04710):
 
-	@inproceedings{bianchi2022pyramidal,
+```bibtex
+    @inproceedings{bianchi2022pyramidal,
         title={Pyramidal Reservoir Graph Neural Network},
         author={Bianchi, Filippo Maria and Gallicchio, Claudio and Micheli, Alessio},
         journal={Neurocomputing},
@@ -17,6 +18,7 @@ Please, cite the original paper if you are using this dataset in your research
         year={2022},
         publisher={Elsevier}
     }
+```
 
 ## Dataset details
 
