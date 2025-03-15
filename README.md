@@ -6,18 +6,19 @@ Therefore, an algorithm that relies only on the node features or on the graph st
 
 ## Citation
 
-If you are using this dataset in your research, please cite [our paper](https://arxiv.org/abs/2104.04710):
+This dataset was formally introduced in the paper [Pyramidal Reservoir Graph Neural Network](https://arxiv.org/abs/2104.04710).
+If you are using this dataset in your research, please consider citing our work:
 
 ```bibtex
-    @inproceedings{bianchi2022pyramidal,
-        title={Pyramidal Reservoir Graph Neural Network},
-        author={Bianchi, Filippo Maria and Gallicchio, Claudio and Micheli, Alessio},
-        journal={Neurocomputing},
-        volume={470},
-        pages={389--404},
-        year={2022},
-        publisher={Elsevier}
-    }
+@inproceedings{bianchi2022pyramidal,
+    title={Pyramidal Reservoir Graph Neural Network},
+    author={Bianchi, Filippo Maria and Gallicchio, Claudio and Micheli, Alessio},
+    journal={Neurocomputing},
+    volume={470},
+    pages={389--404},
+    year={2022},
+    publisher={Elsevier}
+}
 ```
 
 ## Dataset details
@@ -50,6 +51,10 @@ Each set contains:
 - the list of adjacency matrices in csr_matrix format,
 - the list of node features as numpy arrays,
 - the class labels contained in a numpy array,
+
+<img align="left" width="76" height="35" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/NumPy_logo_2020.svg/512px-NumPy_logo_2020.svg.png" alt="Numpy logo">
+
+### Loader (Numpy)
 
 The following code snippet shows how to load the data
 
@@ -95,7 +100,9 @@ for a, x in zip(A_test, X_test):
     G_test.append(G)
 ````
 
-## Loader (Pytorch)
+<img align="left" width="30" height="30" src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" alt="Pytorch logo">
+
+### Loader (Pytorch)
 
 The dataset can be processed by a GNN implemented in [Pytorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/index.html) using the function defined in [torch_loader.py](https://github.com/FilippoMB/Benchmark_dataset_for_graph_classification/blob/master/data_loaders/torch_geometric/torch_loader.py).
 
